@@ -1,0 +1,114 @@
+﻿🎓 Course:
+B.E. Cyber Security – 2nd Year
+🎯 Objective
+To perform network reconnaissance using port scanning techniques and identify open ports, services, operating systems, and potential vulnerabilities in the local network.
+________________
+
+
+🛠 Tools Used
+* Kali Linux
+
+* Nmap
+
+* (Optional) Masscan
+
+* Oracle VM VirtualBox
+
+________________
+
+
+🌐 Network Information
+   * Local IP Address: 10.0.2.15
+
+   * Network Range: 10.0.2.0/24
+
+   * Network Mode: NAT (VirtualBox)
+
+________________
+
+
+🔎 Steps Performed
+1️⃣ Host Discovery
+nmap -sn 10.0.2.0/24
+
+
+Result:
+Active Hosts:
+      * 10.0.2.2
+
+      * 10.0.2.3
+
+      * 10.0.2.15
+
+________________
+
+
+2️⃣ Port Scanning
+nmap 10.0.2.2
+
+
+Findings:
+Example:
+         * Port 22 – SSH – Open
+
+         * Port 80 – HTTP – Open
+
+________________
+
+
+3️⃣ Service Detection
+nmap -sV 10.0.2.2
+
+
+Detected services and versions running on open ports.
+________________
+
+
+4️⃣ OS Detection
+sudo nmap -O 10.0.2.2
+
+
+Operating System detection performed successfully.
+________________
+
+
+5️⃣ Vulnerability Analysis
+nmap --script vuln 10.0.2.2
+
+
+Checked for known vulnerabilities using NSE scripts.
+________________
+
+
+⚠️ Risk Analysis
+Port
+	Service
+	Risk
+	22
+	SSH
+	Brute force attack possible
+	80
+	HTTP
+	Web vulnerabilities possible
+	445
+	SMB
+	May allow remote exploitation if outdated
+	________________
+
+
+📌 Limitations
+Since the VM was running in NAT mode, the scan was limited to the virtual network only. Switching to Bridged mode would allow scanning real devices in the local WiFi network.
+________________
+
+
+🎯 Conclusion
+Network scanning helps in:
+            * Identifying exposed services
+
+            * Detecting potential vulnerabilities
+
+            * Understanding attack surfaces
+
+            * Strengthening network security
+
+This task improved practical knowledge of reconnaissance and vulnerability assessment.
